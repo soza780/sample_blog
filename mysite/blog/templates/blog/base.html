@@ -1,0 +1,28 @@
+{% load blog_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+</head>
+<body>
+    <div id="content">
+        <p>
+            This is my blog.
+            I've written {% total_posts %} posts so far.
+        </p>
+        {% block content %}
+
+        {% endblock content %}
+
+    </div>
+    <div class="sidebar">
+           {% show_latest_posts 3%} 
+    </div>
+
+    
+</body>
+</html>
