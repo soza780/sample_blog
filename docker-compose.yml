@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  backend:
+    build: 
+      context: mysite
+      dockerfile: Dockerfile
+    volumes:
+      - /mysite:/app/mysite
+    command: "python manage.py runserver"
