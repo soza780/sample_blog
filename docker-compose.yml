@@ -6,4 +6,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - /mysite:/app/mysite
+    ports:
+      - 8000:8000
     command: "python manage.py runserver"

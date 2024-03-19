@@ -2,7 +2,7 @@
 {% for post in posts %}
 
 <div class="card post-item bg-transparent border-0 mb-5">
-  <a href="post-details.html">
+  <a href="{{ post.get_absolute_url }}">
     <img
       class="card-img-top rounded-0"
       src="images/post/post-lg/01.png"
@@ -27,7 +27,7 @@
     <p class="card-text my-4">
         {{ post.body|truncatewords:30|linebreaks }}
     </p>
-    <a href="post-details.html" class="btn btn-primary"
+    <a href="{{ post.get_absolute_url }}" class="btn btn-primary"
       >Read More <img src="images/arrow-right.png" alt=""/></a>
   </div>
 </div>
