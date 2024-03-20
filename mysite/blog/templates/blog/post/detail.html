@@ -1,13 +1,29 @@
 {% extends "blog/base.html" %}
-
-{% block title %}{{ post.title }}{% endblock title %}
-
+{% load static %}
 {% block content %}
-    <h1>{{ post.title }}</h1>
-    <p class="date">
-        Published {{ post.publish }} by {{ post.author }}
-    </p>
-    {{ post.body|linebreaks }}
+
+
+    <div class="row justify-content-between">
+    <div class="col-lg-10">
+    <img class="img-fluid" src="blog/static/images/post/post-single/01.png" alt="">
+    <h1 class="text-white add-letter-space mt-4">{{ post.title }}</h1>
+    <ul class="post-meta mt-3 mb-4">
+        <li class="d-inline-block mr-3">
+            <span class="fas fa-clock text-primary"></span>
+            <a class="ml-1" href="#">Published {{ post.publish }} by {{ post.author }}</a>
+        </li>
+        <li class="d-inline-block">
+            <span class="fas fa-list-alt text-primary"></span>
+            <a class="ml-1" href="#">Photography</a>
+        </li>
+    </ul>
+
+    <p>{{ post.body|linebreaks }}</p>
+
+    <div class="blockquote bg-dark my-5">
+        <p class="blockquote-text pl-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, nihil.</p>
+        <span class="blockquote-footer text-white h4 mt-3">James Hopkins</span>
+    </div>
     {% with comments.count as total_comments %}
         <h2>
             {{ total_comments }} comment{{ total_comments|pluralize }}
@@ -26,3 +42,5 @@
     {% endfor %}
     {% include "blog/post/includes/comment_form.html" %}
 {% endblock content %}
+
+                       
