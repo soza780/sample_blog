@@ -1,11 +1,13 @@
-version: '3.8'
+version: '3.4'
+
 services:
-  backend:
-    build: 
-      context: mysite
-      dockerfile: Dockerfile
+  sampleblog:
+    image: sampleblog
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     volumes:
-      - /mysite:/app/mysite
+      - ./mysite:/app/mysite
+    command: "python /app/mysite/manage.py runserver 0.0.0.0:8000"
     ports:
       - 8000:8000
-    command: "python manage.py runserver"
